@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="好词典 Chrome 扩展隐私政策">
+  <title>隐私政策 - 好词典 Chrome 扩展</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #0d6efd;
+      --primary-dark: #0b5ed7;
+      --text: #1f2937;
+      --text-secondary: #4b5563;
+      --text-muted: #6b7280;
+      --bg: #f8f9fa;
+      --card-bg: #fff;
+      --border: #e5e7eb;
+      --danger: #dc2626;
+      --success: #16a34a;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      font-weight: 400;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    header {
+      text-align: center;
+      padding: 40px 0 30px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo svg {
+      width: 64px;
+      height: 64px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+    .meta {
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2::before {
+      content: "";
+      width: 4px;
+      height: 20px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 24px 0 12px;
+    }
+    p, li {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+    ul {
+      padding-left: 22px;
+      margin: 12px 0;
+    }
+    li { margin-bottom: 8px; }
+    .highlight {
+      background: #fef3c7;
+      padding: 16px;
+      border-radius: 8px;
+      border-left: 4px solid #f59e0b;
+      margin: 16px 0;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .data-table th, .data-table td {
+      padding: 12px;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    .data-table th {
+      background: var(--bg);
+      font-weight: 600;
+      color: var(--text);
+    }
+    .data-table td { color: var(--text-secondary); }
+    .contact-box {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 24px;
+    }
+    .contact-box h3 { margin-top: 0; }
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: var(--text-muted);
+      font-size: 14px;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: #dbeafe;
+      color: var(--primary);
+      margin-left: 8px;
+    }
+    strong {
+      font-weight: 600;
+    }
+    .highlight {
+      background: #fef3c7;
+      padding: 16px;
+      border-radius: 8px;
+      border-left: 4px solid #f59e0b;
+      margin: 16px 0;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .data-table th, .data-table td {
+      padding: 12px;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    .data-table th {
+      background: var(--bg);
+      font-weight: 600;
+      color: var(--text);
+    }
+    .data-table td { color: var(--text-secondary); }
+    .contact-box {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 24px;
+    }
+    .contact-box h3 { margin-top: 0; }
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: var(--text-muted);
+      font-size: 14px;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: #dbeafe;
+      color: var(--primary);
+      margin-left: 8px;
+    }
+    strong {
+      font-weight: 600;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 20px 16px; }
+      section { padding: 20px; }
+      h1 { font-size: 24px; }
+      h2 { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="64" height="64">
+          <defs>
+            <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2f98ff"/>
+              <stop offset="1" stop-color="#0758d8"/>
+            </linearGradient>
+            <linearGradient id="tray" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2a83f6"/>
+              <stop offset="1" stop-color="#0a52c8"/>
+            </linearGradient>
+            <linearGradient id="pencil" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffd84d"/>
+              <stop offset="1" stop-color="#ff9d00"/>
+            </linearGradient>
+            <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffffff"/>
+              <stop offset="0.4" stop-color="#aab4c4"/>
+              <stop offset="0.7" stop-color="#ffffff"/>
+              <stop offset="1" stop-color="#7b8595"/>
+            </linearGradient>
+            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#003a9c" flood-opacity="0.25"/>
+            </filter>
+          </defs>
+
+          <!-- background -->
+          <rect x="34" y="34" width="956" height="956" rx="180" fill="url(#bg)"/>
+
+          <!-- decorative rays -->
+          <g fill="#ffd63b">
+            <rect x="820" y="130" width="24" height="78" rx="12" transform="rotate(8 832 169)"/>
+            <rect x="871" y="170" width="24" height="72" rx="12" transform="rotate(45 883 206)"/>
+            <rect x="888" y="240" width="24" height="68" rx="12" transform="rotate(82 900 274)"/>
+          </g>
+
+          <!-- cards -->
+          <g filter="url(#shadow)">
+            <rect x="160" y="275" width="555" height="520" rx="42" transform="rotate(-7 437 535)" fill="#83e8ff"/>
+            <rect x="205" y="240" width="555" height="520" rx="42" transform="rotate(-4 482 500)" fill="#a7ef4b"/>
+            <rect x="250" y="210" width="555" height="520" rx="42" transform="rotate(-2 527 470)" fill="#ffc928"/>
+            <rect x="286" y="180" width="570" height="565" rx="44" transform="rotate(-1 571 463)" fill="#fffdf5"/>
+          </g>
+
+          <!-- binder ring -->
+          <circle cx="247" cy="215" r="92" fill="none" stroke="url(#metal)" stroke-width="24"/>
+          <circle cx="247" cy="215" r="61" fill="#1264d9"/>
+
+          <!-- card text -->
+          <text x="355" y="375" font-family="Arial, Helvetica, sans-serif" font-size="126" font-weight="700" fill="#0b2459">word</text>
+          <g transform="translate(710,300)" fill="#2787ff">
+            <path d="M0 38h34l38-28v96L34 78H0z"/>
+            <path d="M90 34c18 13 18 39 0 52" fill="none" stroke="#2787ff" stroke-width="10" stroke-linecap="round"/>
+            <path d="M108 18c34 25 34 63 0 88" fill="none" stroke="#2787ff" stroke-width="10" stroke-linecap="round"/>
+          </g>
+          <text x="352" y="445" font-family="Arial, Helvetica, sans-serif" font-size="50" fill="#7a8499">/wɜːd/</text>
+
+          <rect x="355" y="485" width="104" height="60" rx="30" fill="#ffcc34"/>
+          <text x="389" y="527" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#ffffff">n.</text>
+          <text x="485" y="530" font-family="'Noto Sans SC','Microsoft YaHei',Arial,sans-serif" font-size="54" font-weight="600" fill="#0b2459">词语；单词</text>
+
+          <line x1="350" y1="575" x2="750" y2="575" stroke="#c8ced9" stroke-width="6" stroke-linecap="round"/>
+
+          <text x="370" y="640" font-family="Arial, Helvetica, sans-serif" font-size="44" fill="#0b2459">Learn a new</text>
+          <text x="646" y="640" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" fill="#167cff">word</text>
+          <text x="370" y="690" font-family="Arial, Helvetica, sans-serif" font-size="44" fill="#0b2459">every day.</text>
+
+          <!-- underline -->
+          <path d="M640 662 Q705 642 765 656" fill="none" stroke="#ffd130" stroke-width="12" stroke-linecap="round"/>
+
+          <!-- pencil -->
+          <g transform="translate(760 480) rotate(28)">
+            <rect x="0" y="0" width="78" height="300" rx="18" fill="url(#pencil)"/>
+            <rect x="0" y="-54" width="78" height="64" rx="24" fill="#ff6b77"/>
+            <rect x="0" y="10" width="78" height="34" fill="#cfd4dc"/>
+            <rect x="0" y="24" width="78" height="8" fill="#8f98a6"/>
+            <polygon points="0,300 78,300 39,380" fill="#f0caa4"/>
+            <polygon points="28,348 50,348 39,380" fill="#2b3040"/>
+          </g>
+
+          <!-- bottom tray -->
+          <path d="M74 757 Q74 930 205 948 H819 Q950 930 950 757 L924 775 Q905 790 870 790 H154 Q119 790 100 775 Z" fill="url(#tray)"/>
+
+          <!-- brand -->
+          <g>
+            <rect x="208" y="879" width="58" height="12" rx="6" fill="#ffd238"/>
+            <rect x="758" y="879" width="58" height="12" rx="6" fill="#ffd238"/>
+            <text x="313" y="921"
+              font-family="'Noto Sans SC','Microsoft YaHei','PingFang SC',Arial,sans-serif"
+              font-size="108"
+              font-weight="800"
+              fill="#ffffff">好词典</text>
+          </g>
+        </svg>
+      </div>
+      <h1>隐私政策 <span class="badge">v1.0</span></h1>
+      <p class="subtitle">好词典 · great dict Chrome 扩展隐私政策</p>
+      <div class="meta">生效日期：2026 年 9 月 3 日 &nbsp;|&nbsp; 最后更新：2026 年 9 月 3 日</div>
+    </header>
+
+    <section>
+      <h2>概述</h2>
+      <p>欢迎使用 <strong>好词典 · great dict</strong> Chrome 扩展（以下简称"本扩展"或"我们"）。我们非常重视您的隐私保护。本政策旨在向您说明我们在您使用本扩展时如何收集、使用、存储、共享和保护您的个人信息，以及您享有的相关权利。</p>
+      <p>请在使用本扩展前仔细阅读本政策。如果您不同意本政策的任何内容，请停止使用本扩展。您继续使用即表示您已充分理解并同意本政策。</p>
+    </section>
+
+    <section>
+      <h2>我们收集的信息</h2>
+      <p>我们仅收集为您提供核心功能（划词翻译、词库管理、微信登录同步）所必需的最少信息：</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>数据类型</th><th>收集方式</th><th>用途</th><th>是否必需</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>微信 OpenID、昵称、头像</td><td>微信授权登录（code2Session）</td><td>账号识别、跨端词库同步、个性化展示</td><td>是（登录功能必需）</td></tr>
+          <tr><td>用户词库（单词、释义、标签、音标、例句、音频）</td><td>用户主动添加/编辑/删除</td><td>词库云端存储、多端同步、个人复习</td><td>是（核心功能必需）</td></tr>
+          <tr><td>自定义标签</td><td>用户创建/编辑/删除</td><td>词库分类管理</td><td>否（可选功能）</td></tr>
+          <tr><td>触发方式偏好</td><td>用户在设置中选择</td><td>划词触发方式个性化（普通/Ctrl/Shift/关闭）</td><td>否（个性化偏好）</td></tr>
+          <tr><td>登录凭证</td><td>微信扫码登录流程生成</td><td>身份验证、会话维持、安全校验</td><td>是（登录功能必需）</td></tr>
+          <tr><td>使用统计（可选）</td><td>前端埋点（如启用）</td><td>产品体验优化、功能使用分析</td><td>否（可在设置中关闭）</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <strong>原则：</strong> 我们遵循"最小化、必要性、合法性"原则，<strong>不收集</strong> 与上述功能无关的任何信息（如浏览历史、剪贴板非选中内容、设备指纹、位置信息等）。
+      </div>
+    </section>
+
+    <section>
+      <h2>信息的使用</h2>
+      <p>我们收集的信息仅用于以下目的：</p>
+      <ul>
+        <li><strong>提供核心功能</strong>：划词翻译、词库增删改查、标签管理、跨端同步、微信登录认证。</        </li>
+        <li><strong>账号安全</strong>：登录态校验、异常登录检测、token 刷新与撤销。</li>
+        <li><strong>服务优化</strong>：在您明确授权的前提下，通过聚合匿名统计改进功能体验（可在设置中关闭）。</li>
+        <li><strong>法律合规</strong>：响应法律法规要求、配合监管审计、维护平台安全。</li>
+      </ul>
+      <div class="highlight">
+        我们 <strong>绝不</strong> 将您的个人信息用于广告投放、用户画像商业变现、出售给第三方或任何未经授权的用途。
+      </div>
+    </section>
+
+    <section>
+      <h2>信息的存储与安全</h2>
+      <ul>
+        <li><strong>存储位置</strong>：所有用户数据存储在我们自建的后端数据库（MySQL）中，服务器部署在中国境内（中国大陆），符合《个人信息保护法》跨境传输要求。</li>
+        <li><strong>传输加密</strong>：所有网络请求强制 HTTPS（TLS 1.2+），登录凭证、词库数据传输全程加密。</li>
+        <li><strong>本地缓存</strong>：扩展端使用 <code>chrome.storage.local</code> 缓存登录 Token、用户偏好、待同步词条，<strong>不包含明文密码</strong>。Token 过期自动清理。</li>
+        <li><strong>访问控制</strong>：后端实施基于角色的访问控制（RBAC），仅授权人员可访问生产数据库；数据库定期备份，异地异机存储。</        </li>
+        <li><strong>安全审计</strong>：关键操作（登录、修改密码、导出数据）均有审计日志，定期进行漏洞扫描与渗透测试。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>信息的共享与披露</h2>
+      <p>我们<strong>不会</strong>向第三方出售、出租或交易您的个人信息。仅在以下情形可能共享：</p>
+      <ul>
+        <li><strong>法律强制</strong>：依据法律法规、法院判决、政府机关依法要求披露。</li>
+        <li><strong>服务提供商</strong>：仅委托受严格保密协议约束的云服务商（如阿里云、腾讯云）提供基础设施服务，<strong>不授权其将数据用于其他目的</strong>。</li>
+        <li><strong>业务合并/重组</strong>：若发生合并、收购、破产清算涉及个人信息转移，我们将要求新主体继续履行本政策义务，并通知您。</li>
+      </ul>
+      <p>除上述情形外，未经您明确同意，我们不会向任何第三方披露您的个人信息。</p>
+    </section>
+
+    <section>
+      <h2>您的权利</h2>
+      <p>根据《个人信息保护法》（PIPL）、《网络安全法》及 GDPR 相关规定，您享有以下权利：</p>
+      <table class="data-table">
+        <thead><tr><th>权利</th><th>说明</th><th>行使方式</th></tr>
+        <tbody>
+          <tr><td>知情权</td><td>知晓我们收集、使用您信息的方式、目的、范围</td><td>阅读本政策、查看扩展内"隐私政策"链接</td></tr>
+          <tr><td>访问权</td><td>获取您个人信息的副本</td><td>扩展内"导出词库"功能、或联系客服申请完整数据副本</td></tr>
+          <tr><td>更正权</td><td>更正不准确/不完整的个人信息</td><td>扩展内直接编辑词库/标签/个人资料；联系客服更正账号信息</td></tr>
+          <tr><td>删除权</td><td>请求删除您的个人信息</td><td>扩展内"注销账号"、或联系客服申请删除</td></tr>
+          <tr><td>撤回同意</td><td>随时撤回对非必需功能的授权</td><td>扩展设置中关闭"使用统计"、撤销微信授权</td></tr>
+          <tr><td>可携带权</td><td>以结构化、常用格式获取数据</td><td>扩展内"导出词库"导出 JSON/CSV</td></tr>
+          <tr><td>投诉权</td><td>向监管部门投诉</td><td>向国家网信办/各地通信管理局/消费者协会投诉</td></tr>
+        </tbody>
+      </table>
+      <p>我们承诺在 <strong>15 个工作日内</strong> 响应您的合理请求。复杂情况可能延长至 30 天，我们会及时告知延期原因。</p>
+    </section>
+
+    <section>
+      <h2>数据保留与删除</h2>
+      <ul>
+        <li><strong>登录凭证</strong>：Token 有效期 2 小时，过期自动失效；登出即撤销。</li>
+        <li><strong>词库数据</strong>：您主动删除即时从主库移除，归档 30 天后彻底删除（支持误删恢复）。</li>
+        <li><strong>注销账号</strong>：您申请注销后，我们在 7 个工作日内彻底删除所有个人信息（法律强制保留除外）。</li>
+        <li><strong>日志审计</strong>：操作日志保留 180 天，仅用于安全审计，不含敏感内容。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>未成年人保护</h2>
+      <p>本扩展主要面向成年人。若您未满 14 周岁，请在监护人指导下使用，并由监护人代为行使相关权利。若发现我们意外收集了未满 14 周岁儿童的个人信息，将尽快删除。</p>
+    </section>
+
+    <section>
+      <h2>第三方服务与链接</h2>
+      <p>扩展内可能包含指向第三方网站的链接（如官网、微信小程序、官网网站）。点击后将离开本扩展环境，第三方网站的隐私实践不受本政策约束，请自行阅读其隐私政策。</p>
+    </section>
+
+    <section>
+      <h2>政策更新</h2>
+      <p>我们可能根据法律法规变更、功能迭代或监管要求更新本政策。重大变更将通过以下方式通知您：</p>
+      <ul>
+        <li>扩展内弹窗/横幅提示</li>
+        <li>官网公告、邮件/站内信通知</li>
+        <li>更新本页面顶部"最后更新日期"</li>
+      </ul>
+      <p>建议您定期查阅本页面以了解最新版本。继续使用即视为接受更新后的政策。</p>
+    </section>
+
+    <section>
+      <h2>联系我们</h2>
+      <div class="contact-box">
+        <h3>如有任何隐私相关疑问、投诉或建议，请通过以下方式联系我们：</h3>
+        <p><strong>电子邮箱</strong>：<a href="mailto:dev#ebf.hk">dev#ebf.hk</a></p>       
+        <p><strong>响应时效</strong>：收到邮件后 <strong>3 个工作日内</strong> 确认收到，<strong>15 个工作日内</strong> 给予实质性回复。</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 好词典 · great dict. All rights reserved.</p>
+      <p>最后更新：2026 年 9 月 3 日 &nbsp;|&nbsp; 版本 1.0</p>
+    </footer>
+  </div>
+</body>
+</html>
